@@ -147,6 +147,8 @@ in one small app with **one click per task**.
 | <img src="docs/screenshots/main-window.png" width="420" alt="Main window"/> | <img src="docs/screenshots/menu.png" width="420" alt="Menu"/> |
 | **Realtime mode + QR** | **Dark mode** |
 | <img src="docs/screenshots/realtime-qr.png" width="420" alt="Realtime mode with QR code"/> | <img src="docs/screenshots/dark-mode.png" width="420" alt="Dark mode"/> |
+| **Project tools** (Menu → www → project) | **Dashboard at `http://localhost`** |
+| <img src="docs/screenshots/project-menu.png" width="260" alt="Project menu: share online, deploy, dumps, scheduler, snapshots"/> | <img src="docs/screenshots/localhost-dashboard.png" width="420" alt="SoftNix dashboard at localhost"/> |
 
 </div>
 
@@ -181,6 +183,17 @@ in one small app with **one click per task**.
 | Open phpMyAdmin | Click **Database** or open <http://localhost/phpmyadmin> |
 | Run `npm run dev` with Start all | **Menu → Procfile** → add `vite: myapp \| npm run dev` |
 | Switch PHP version | **Menu → PHP → Version** |
+| Turn a PHP extension on / off | **Menu → PHP → Extensions** → tick it |
+| Bigger upload / memory limit | **Menu → PHP → Quick settings** |
+| Debug with Xdebug | **Menu → PHP → Xdebug** → VS Code "Listen for Xdebug" |
+| Use another Node version | **Menu → Tools → Node version** |
+| See `dump()` / `dd()` and `laravel.log` | Click **Dumps** |
+| Run Laravel's scheduler | **Menu → www → your project → Scheduler** |
+| Save / restore the database | **Menu → www → your project → Database snapshot** |
+| Show your project to a client (public link) | **Menu → www → your project → Share online** |
+| Upload changes to your hosting | **Menu → www → your project → Deploy to live** |
+| Use PostgreSQL | **Menu → Quick add → PostgreSQL**, then project → *Use PostgreSQL database* |
+| See all projects in the browser | Open <http://localhost> |
 
 **MySQL login:** user `root`, password `root` (like XAMPP / Laragon). MySQL accepts connections from this PC only.
 Prefer a strong random password? **Settings → MySQL → Use a strong random root password**.
