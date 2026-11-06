@@ -48,6 +48,8 @@ in one small app with **one click per task**.
 - 🔒 **Secure by default** — services listen on `127.0.0.1`, every download is SHA-256 verified, no tracking.
 - 🪶 **Tiny installer** (~2 MB) — it downloads only the servers you choose, from their official websites.
 - 🔄 **Auto-updates** — new versions are offered inside the app; your projects and databases are always kept.
+- 🧩 **All-in-one** — PHP extensions, Xdebug, Node versions, PostgreSQL, dump viewer, database snapshots, public share links
+  and one-click deploy to your hosting: the tools you used to install separately, built in (and downloaded only when you use them).
 
 ---
 
@@ -63,6 +65,10 @@ in one small app with **one click per task**.
 - **Automatic domains** — every folder in `www` becomes `https://folder.test`
 - **HTTPS** with a local certificate authority (trusted once)
 - Laravel `public/` folder detected automatically
+- **PHP extensions on/off** with a tick (gd, intl, zip, sodium, pgsql…)
+- **PHP quick settings** — upload size, memory limit, max execution time
+- **Xdebug** on/off for VS Code / PhpStorm (downloaded when first turned on)
+- **Dashboard at `http://localhost`** — all projects, services and tools (only on this PC)
 - Edit `php.ini`, custom server config, view logs from the menu
 
 </td>
@@ -74,6 +80,8 @@ in one small app with **one click per task**.
 - **Adminer** — also opens **SQLite** files
 - **SQLite** support + `sqlite3` command line
 - One-click **project database** with its own user (`.env` filled for you)
+- **PostgreSQL** (optional download, `postgres` / `postgres`, this PC only)
+- **Database snapshots** — save a project's database in one click and restore it later
 - Import `.sql` files and **import databases from Laragon**
 
 </td>
@@ -83,7 +91,9 @@ in one small app with **one click per task**.
 
 ### 🧰 Laravel & PHP tools
 - **Quick app**: Laravel, **WordPress**, blank PHP
-- **Composer** and **Node.js 24 LTS** (npm, Vite) on the terminal PATH
+- **Composer** and **Node.js 20 / 22 / 24** (switch versions) on the terminal PATH
+- **Dumps & Logs** — `dump()` / `dd()` shown in a window instead of the page, and `laravel.log` live with an *Errors only* filter
+- **Scheduler on/off** per project (runs `schedule` every minute — no Windows Task Scheduler)
 - Run migrations, install Reverb, open terminal in a project
 - **Procfile** — keep `npm run dev`, schedulers or any command running with *Start all*
 - Built-in **Terminal** with the right PHP / MySQL / Composer / Node
@@ -98,6 +108,7 @@ in one small app with **one click per task**.
 - **WiFi / LAN share** — open your app on phones and other PCs
 - **QR code** for instant phone testing
 - Firewall rule limited to your **private network & local subnet**
+- 🌍 **Share online** — a temporary public `https://…trycloudflare.com` link for client demos and webhook tests (bKash, SSLCommerz, Stripe)
 
 </td>
 </tr>
@@ -117,6 +128,8 @@ in one small app with **one click per task**.
 - **First-time setup** downloads everything you pick (~170 MB)
 - Logs viewer, settings window, port editor
 - **Auto-update** from GitHub Releases (SHA-256 verified)
+- **Deploy to live** — uploads only the changed files to your hosting over SSH (key login), runs migrations, maintenance page while it updates
+- **Settings → Downloads** — see and remove optional add-ons
 - Clean uninstall — **keeps your projects and databases**
 
 </td>
@@ -221,10 +234,11 @@ flowchart LR
 - Downloads are **HTTPS only** and **SHA-256 verified** before they are used. Archives are checked against path tricks.
 - Secrets (Redis password, random MySQL password, SMTP password) are encrypted with **Windows DPAPI**.
 - Administrator rights are requested only for the hosts file, the firewall rule and uninstall cleanup.
-- **No tracking.** The app only checks GitHub for updates (can be turned off in Settings).
-- **Anonymous install count:** the installer sends *install / update / uninstall* with a random ID, the app version and
-  the Windows version, so we know how many people use SoftNix Server — no name, no files, no projects.
-  To turn it off, run the setup with `/NOSTATS`.
+- **No tracking.** The app checks GitHub for updates (can be turned off in Settings).
+- **Anonymous usage count:** the installer sends *install / update / uninstall* (with an optional reason you pick when
+  uninstalling), and the app sends one "still in use" signal per day — only a random ID, the app version and the Windows
+  version. No name, no files, no projects. To turn it off, run the setup with `/NOSTATS`.
+- **Feedback** you send from *Help → Report a bug / Request a feature* goes to the SoftNix team (your email only if you type it).
 
 ---
 
@@ -259,10 +273,11 @@ Your <code>www</code> (projects), <code>data</code> (databases) and <code>etc</c
 </details>
 
 <details>
-<summary><b>Can I use it together with Laragon?</b></summary>
+<summary><b>I'm moving from Laragon — how do I bring my projects?</b></summary>
 
-Yes, but not at the same time on the same ports. You can import your Laragon databases:
-<b>Menu → www → project → Import database from Laragon</b> (your Laragon data is never changed).
+<b>Menu → Tools → Move from Laragon</b> (SoftNix also asks on first start). Pick your projects and databases: they are
+<b>copied</b> into SoftNix, and Laravel <code>.env</code> / WordPress <code>wp-config.php</code> are pointed at SoftNix's MySQL
+automatically. Laragon's own files are never changed. If Laragon is still running, SoftNix tells you and offers a free port.
 </details>
 
 ---
