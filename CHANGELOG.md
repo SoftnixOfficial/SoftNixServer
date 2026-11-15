@@ -2,6 +2,21 @@
 
 All notable changes to SoftNix Server are listed here.
 
+## [1.1.1] — 2026-11-15
+
+### Fixed
+- First-time setup could be interrupted by the update prompt, leaving a half-installed app; the update check now runs first
+- Setup window returns while the web server or PHP is missing; Retry repeats only failed downloads; "Start all" no longer reports success with nothing installed
+- Plain-language download errors (blocked site, DNS, TLS, rate limit, timeout)
+- MariaDB / MySQL: interrupted first start no longer leaves an unusable data folder (moved aside, not deleted)
+- Windows reserved port ranges (Hyper-V / WSL / Docker) detected; PostgreSQL and PHP FastCGI ports switch automatically
+- Installer rejects install folders with spaces or non-ASCII letters
+
+### Changed
+- Updates are required: checked on every start and every 3 hours; never blocks when GitHub is unreachable
+- Update check falls back to the releases page when the GitHub API rate limit is hit
+- Uninstall form can include the last three error lines of the SoftNix log (opt-out checkbox)
+
 ## [1.1.0] — 2026-11-07
 
 ### New

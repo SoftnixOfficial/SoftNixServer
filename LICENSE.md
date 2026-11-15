@@ -24,8 +24,10 @@ Software and are provided under their own licenses by their respective owners.
 
 ## Privacy
 The Software does not collect personal data. The installer sends one anonymous message on install, update and uninstall
-containing only a random installation ID, the Software version and the Windows version. You can turn this off by running
-the installer with the `/NOSTATS` option.
+(with an optional uninstall reason the user chooses), and the Software sends one anonymous "still in use" message per day.
+These contain only a random installation ID, the Software version and the Windows version. You can turn this off by
+running the installer with the `/NOSTATS` option. Feedback you send from inside the Software is delivered to SoftNix
+together with the app and Windows version; an email address is included only if you type one.
 The Software checks GitHub for new versions; this can be turned off in Settings.
 
 ## No warranty
